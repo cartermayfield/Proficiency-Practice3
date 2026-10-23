@@ -1,0 +1,326 @@
+    1  whoami
+    2  logout
+    3  git clone https://github.com/cs429-fa2026/cs429-fa2026-ci-lab-cartermayfield.git
+    4  git clone https://github.com/cs429-fa2026/cs429-fa2026-ci-lab-cartermayfield.git
+    5  git clone https://github.com/cs429-fa2026/cs429-fa2026-ci-lab-cartermayfield.git
+    6  ssh-keygen -t ed25519 -C "cartermayfield@utexas"
+    7  cat ~/.ssh/id_ed25519.pub
+    8  ssh -T git@github.com
+    9  git clone https://github.com/cs429-fa2026/cs429-fa2026-ci-lab-cartermayfield.git
+   10  git clone git@github.com:cs429-fa2026/cs429-fa2026-ci-lab-cartermayfield.git
+   11  make all
+   12  bin/ci -i foo -o bar
+   13  make test_week2
+   14  ./ci_reference -i 'testcases/week2/nop.s' -o ref.out
+   15  ./bin/ci -i 'testcases/week2/nop.s' -o ci.out
+   16  diff -u ref.out ci.out
+   17  make all
+   18  make week_2
+   19  make all
+   20  make test_week2
+   21  make clean
+   22  make all
+   23  make test_week2
+   24  ./ci_reference -i 'testcases/week2/nop_err3.s' -o ref.out
+   25  ./bin/ci -i 'testcases/week2/nop_err3.s' -o ci.out
+   26  diff -u ref.out ci.out
+   27  make clean
+   28  make all
+   29  make test_week2
+   30  valgrind --leak-check=full ./bin/ci -i 'testcases/week2/nop.s'
+   31  make clean
+   32  make all
+   33  make test_week2
+   34  make clean\
+   35  make clean
+   36  make all
+   37  make test_week2
+   38  make clean
+   39  make all
+   40  make test_week2
+   41  ./ci_reference -i 'testcases/week2/nop_err3.s' -o ref.out
+   42  ./bin/ci -i 'testcases/week2/nop_err3.s' -o ci.out
+   43  diff -u ref.out ci.out
+   44  make clean
+   45  make all
+   46  make test_week2
+   47  make clean
+   48  make all
+   49  make test_week2
+   50  valgrind --leak-check=full --show-leak-kinds=all ./bin/ci -i 'testcases/week2/nop.s'
+   51  make clean
+   52  make all
+   53  make clean
+   54  make all
+   55  make clean
+   56  make all
+   57  make test_week2
+   58  valgrind --leak-check=full --show-leak-kinds=all ./bin/ci -i 'testcases/week2/nop.s'
+   59  make clean && make all
+   60  make test_week2
+   61  make clean && make all
+   62  make test_week2
+   63  make clean && make all & make test_week2
+   64  make clean && make all & make test_week2
+   65  make clean && make all & make test_week2
+   66  make clean && make all & make test_week2
+   67  make clean && make all
+   68  make test_week2
+   69  make clean && make all
+   70  make test_week2
+   71  make clean && make all && make test_week2
+   72  make clean
+   73  make clean
+   74  make all
+   75  make test_week2
+   76  make clean && make all
+   77  make test_week2
+   78  git config --global cartermayfield
+   79  git config --global user.name cartermayfield
+   80  git config --global user.email carter.mayfield.jr@gmail.com
+   81  make clean
+   82  make all
+   83  make test_week2
+   84  make && ./bin/ci -p -i testcases/week2/add.s > /tmp/mine
+   85  ./ci_reference -p -i testcases/week2/add.s | diff - /tmp/mine
+   86  make && ./bin/ci -p -i testcases/week2/add.s > /tmp/mine
+   87  ./ci_reference -p -i testcases/week2/add.s | diff - /tmp/mine
+   88  make clean
+   89  make all
+   90  make clean
+   91  make all
+   92  make test_week2
+   93  make && ./run_tests.sh 2 2>&1 | grep -E "add|nop"
+   94  make all
+   95  make clean
+   96  make all
+   97  make clean
+   98  make all
+   99  make clean
+  100  make all
+  101  make test_week2
+  102  make all
+  103  make clean
+  104  make all
+  105  make test_week2
+  106  make clean
+  107  make all
+  108  make test_week2
+  109  make clean
+  110  make all
+  111  make test_week2
+  112  make clean
+  113  make all && make test_week2
+  114  make clean && make all
+  115  make clean
+  116  make all
+  117  make clean && make all
+  118  make test_week2
+  119  ./run_tests.sh 2 2>&1 | grep -E "FAIL|week2:"
+  120  grep -c '0b' testcases/week2/{add_rand,cmp_eq_imm,cmp_lt_imm,mov_exhaustive,print,sub_rand}.s
+  121  make clean && make all
+  122  make test_week2
+  123  claude
+  124  make
+  125  make
+  126  make
+  127  for t in testcases/week3/{and,eor,orr}_err*.s; do   diff <(./ci_reference -i "$t" 2>&1) <(./bin/ci -i "$t" 2>&1) >/dev/null     && echo "$(basename $t) OK" || echo "$(basename $t) DIFF";  done
+  128  make
+  129  make
+  130  for t in load load_store load_store_2 store memory_store hello_world hello_world_nl hello_world_offset modify_string; do   diff <(./ci_reference -p -i testcases/week3/$t.s 2>&1) <(./bin/ci -p -i testcases/week3/$t.s 2>&1) >/dev/null     && echo "$t OK" || echo "$t DIFF"; done
+  131  make
+  132  make
+  133  ./run_tests.sh 3
+  134  make
+  135  make
+  136  make
+  137  make
+  138  make
+  139  for t in testcases/hashtable/*.trace; do   printf "%-20s " "$(basename $t)";   valgrind -q --leak-check=full --error-exitcode=9 ./bin/ht_test "$t" >/dev/null 2>&1     && echo clean || echo "VALGRIND ERRORS"; done
+  140  make test_hashtable
+  141  make clean && make && make test_hashtable
+  142  for t in testcases/hashtable/*.trace; do   printf "%-20s " "$(basename $t)";   valgrind -q --leak-check=full --error-exitcode=9 ./bin/ht_test "$t" >/dev/null 2>&1     && echo clean || echo "VALGRIND ERRORS"; done
+  143  ./run_tests.sh 3
+  144  make clean && make
+  145  make clean && make
+  146  make clean && make
+  147  make clean
+  148  make
+  149  make clean
+  150  make
+  151  for t in testcases/week4/*.s; do   ra=$(./ci_reference -p -i "$t" 2>&1);   n=$(echo "$ra" | grep -n "^Branch condition:" | tail -1 | cut -d: -f1); [ -z "$n" ] && n=6;   [ "$(echo "$ra" | head -n $n)" = "$(./bin/ci -p -i "$t" 2>&1 | head -n $n)" ]     && echo "$(basename $t) OK" || echo "$(basename $t) DIFF"; done
+  152  ./run_tests.sh 3 
+  153  make clean && make
+  154  make clean && make
+  155  make clean && make
+  156  ./run_tests.sh 4
+  157  make clean && make
+  158  ./run_tests.sh 4
+  159  printf 'mov x0, 1\ncall f\nprint 9, D\nf:\nmov x0, 2\nprint x0, D' > /tmp/noret.s
+  160  valgrind --leak-check=full ./bin/ci -i /tmp/noret.s      # call, never returns
+  161  printf 'call f\nf:\nload x0, [0, 3]' > /tmp/errmid.s
+  162  valgrind --leak-check=full ./bin/ci -i /tmp/errmid.s     # error inside a call
+  163  valgrind --leak-check=full ./bin/ci -i testcases/week4/collatz_recursive.s
+  164  make clean && make all
+  165  ./run_tests.sh 4
+  166  make clean && make all
+  167  ./run_tests.sh 4
+  168  cd ./
+  169  cd /
+  170  cd ~
+  171  pwd
+  172  ls
+  173  git clone git@github.com:cs429-fa2026/cs429-fa2026-mm-lab-cartermayfield.git
+  174  ls
+  175  cd cs429-fa-2026-mm-lab-cartermayfield
+  176  cd cs429-fa2026-mm-lab-cartermayfield
+  177  make heap_runner && ./heap_runner -v
+  178  make
+  179  make
+  180  make
+  181  make
+  182  make
+  183  pwd
+  184  ls
+  185  cd cs429-fa2026-mm-lab-cartermayfield
+  186  claude
+  187  make
+  188  make
+  189  make
+  190  ls
+  191  cd cs429-fa2026-mm-lab-cartermayfield
+  192  make
+  193  ./runner -r -c traces/week1/short1.rep
+  194  make
+  195  ./runner -r -c traces/week1/short1.rep
+  196  make
+  197  make
+  198  make clean
+  199  make test_week1
+  200  git checkout c7d70f5 -- quicklist_check
+  201  make clean
+  202  make
+  203  make clean
+  204  make
+  205  make clean
+  206  make
+  207  ./quicklist_check
+  208  ./bump_test
+  209  make test_week2
+  210  make test_week2
+  211  cd ~
+  212  git clone git@github.com:cs429-fa2026/cs429-fa2026-ac-lab-cartermayfield.git
+  213  cd ./.ssh
+  214  chmod 0600 clm6773_ac_429
+  215  ssh bagenkop.utcs429.com
+  216  ssh bagenkop
+  217  ssh bagenkop.utcs429.com
+  218  ssh bagenkop.utcs429.com
+  219  git add functions.s
+  220  git commit -m "Week 1: unicode_to_UTF8, UTF8_to_unicode, slide_and_sum, lru all done"
+  221  git commit -m "Week 1: unicode_to_UTF8, UTF8_to_unicode, slide_and_sum, lru done"
+  222  git push origin main
+  223  make schlotzkeys
+  224  make
+  225  ./sb
+  226  make cheba
+  227  make snarfs
+  228  make mikes
+  229  make sammy
+  230  make all
+  231  make subway
+  232  make subway
+  233  make subway
+  234  make snarfs
+  235  make subway
+  236  cd ~
+  237  pwd
+  238  git clone git@github.com:cartermayfield/Proficiency-Practice.git
+  239  echo "hi"
+  240  cd
+  241  cd ~
+  242  ls
+  243  cd Proficiency-Practice
+  244  pwd
+  245  ls
+  246  ls -a
+  247  echo "hi" > README.md
+  248  cat README.md
+  249  cd
+  250  make subway
+  251  ./sb
+  252  ./bin/sb
+  253  cd bin
+  254  ./sb
+  255  ./sb longs.trace
+  256  ./sb -i longs.trace
+  257  ./sb -i ../testcases/longs.trace
+  258  make cheba
+  259  make snarfs
+  260  cd ..
+  261  make cheba
+  262  make snarfs
+  263  make potbelly
+  264  gdb ./bin/sb
+  265  gdb ./sb
+  266  gdb ./bin/sb
+  267  make snarfs
+  268  make cheba
+  269  gdb ./bin/sb
+  270  make potbelly
+  271  gdb ./bin/sb
+  272  make snarfs
+  273  make potbelly
+  274  gdb ./bin/sb
+  275  make snarfs
+  276  make subway
+  277  make cheba
+  278  ./ref_sb testcases/longs.trace
+  279  ./ref_sb -i testcases/longs.trace
+  280  chmod +x ref_sb
+  281  ./ref_sb -i testcases/longs.trace
+  282  ./bin/sb testcases/longs.trace
+  283   ./bin/sb -i  testcases/longs.trace
+  284  make cheba
+  285  history
+  286  touch shell_logs.txt
+  287  history > shell_logs.txt
+  288  git status
+  289  git add .
+  290  git commit -m "done"
+  291  git push
+  292  cd ..
+  293  rm -rf Proficiency-Practice2
+  294  pwd
+  295  ls -l
+  296  pwd
+  297  ls -l
+  298  git clone git@github.com:cartermayfield/Proficiency-Practice2.git
+  299  make
+  300  ./mini_ci
+  301  ./mini_ci testcases/basic_add.s
+  302  make clean
+  303  make debug
+  304  gdb ./mini_ci
+  305  make clean
+  306  make debug
+  307  ./mini_ci basic_add.s
+  308  ./mini_ci testcases/basic_add.s
+  309  gdb ./mini_ci
+  310  make clean
+  311  make debug
+  312  ./mini_ci testcases/basic_add.s
+  313  make clean
+  314  make check
+  315  chmod +x mini_ci_reference
+  316  make clean
+  317  make check
+  318  ./mini_ci_reference testcases/multi_op_err2.s
+  319  ./mini_ci testcases/multi_op_err2.s
+  320  gdb ./mini_ci
+  321  make clean
+  322  make debug
+  323  gdb ./mini_ci
+  324  make clean
+  325  make check
+  326  history > shell_logs.txt

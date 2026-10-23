@@ -1,0 +1,10 @@
+    5  run testcases/basic_add.s
+    6  p reader
+    7  p *reader
+    8  q
+    9  r testcases/multi_op_err2.s
+   10  q
+   11  run testcases/multi_op_err2.s
+   12  p val_a->val
+   13  q
+   14  show commands
